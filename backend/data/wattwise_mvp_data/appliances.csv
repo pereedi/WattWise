@@ -1,0 +1,7 @@
+appliance_id,appliance_name,category,rated_power_w,flexible_load,typical_cycle_min
+A_FRIDGE,Fridge,cold,180,False,20
+A_WASHER,Washing Machine,laundry,2200,True,90
+A_TV,Television,entertainment,140,False,0
+A_KETTLE,Electric Kettle,kitchen,3000,False,4
+A_LIGHTS,Lighting Circuit,lighting,400,False,0
+A_HEATER,Space Heater,heating,2000,True,30

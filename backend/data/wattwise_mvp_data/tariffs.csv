@@ -1,0 +1,3 @@
+tariff_id,region,start_time,end_time,rate_gbp_per_kwh,tariff_type
+T_UK_LIN_OFFPEAK,UK-LIN,23:00:00,07:00:00,0.2,offpeak
+T_UK_LIN_PEAK,UK-LIN,07:00:00,23:00:00,0.34,peak

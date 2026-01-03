@@ -1,0 +1,6 @@
+home_id,home_type,occupants,region,floor_area_m2
+H1,flat,1,UK-LIN,45.0
+H2,terrace,3,UK-LIN,92.0
+H3,semi-detached,4,UK-LIN,118.0
+H4,detached,2,UK-LIN,135.0
+H5,flat,2,UK-LIN,68.0

@@ -1,16 +1,13 @@
-import React from 'react';
-import Sidebar from './Sidebar';
 
-export default function Layout({ children, activePage, setActivePage }) {
+
+
+export default function Layout({ children }) {
     return (
-        <div className="flex bg-[var(--bg-primary)] min-h-screen">
+        <div className="flex bg-[var(--bg-primary)] min-h-screen w-full overflow-x-hidden justify-center">
             {/* Main Content Area */}
-            <main className="flex-1 mr-72 p-4">
+            <main className="w-full max-w-[1200px] p-6 lg:p-8">
                 {children}
             </main>
-
-            {/* Right Sidebar */}
-            <Sidebar activePage={activePage} setActivePage={setActivePage} />
         </div>
     );
 }

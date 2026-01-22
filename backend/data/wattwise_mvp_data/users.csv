@@ -1,0 +1,6 @@
+﻿user_id,full_name,email,role,password,created_at
+user1,User One,user1@test.com,user,password123,01/01/2025
+user2,User Two,user2@test.com,user,password123,01/01/2025
+user3,User Three,user3@test.com,user,password123,01/01/2025
+user4,User Four,user4@test.com,user,password123,01/01/2025
+user5,User Five,user5@test.com,user,password123,01/01/2025

@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { ResponsiveContainer, LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from "recharts";
-import { format, parseISO, startOfWeek, startOfMonth, isSameWeek, isSameMonth, endOfWeek, endOfMonth } from "date-fns";
+import { format, parseISO, startOfWeek, startOfMonth, endOfWeek } from "date-fns";
 
 export default function EnergyChart({ data }) {
     const [viewMode, setViewMode] = useState("day"); // 'day', 'week', 'month'
@@ -75,14 +75,14 @@ export default function EnergyChart({ data }) {
         <div className="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm h-full flex flex-col">
             <div className="flex items-center justify-between mb-6">
                 <h3 className="text-lg font-bold text-[var(--text-primary)]">Energy Consumption</h3>
-                <div className="flex bg-[var(--bg-secondary)] rounded-lg p-1 border border-[var(--border-color)]">
+                <div className="flex bg-[var(--bg-secondary)] rounded-lg p-1 border border-[var(--border-color)] gap-2">
                     {["day", "week", "month"].map((mode) => (
                         <button
                             key={mode}
                             onClick={() => setViewMode(mode)}
                             className={`px-3 py-1 text-sm font-medium rounded-md transition-all ${viewMode === mode
-                                    ? "bg-[var(--accent-color)] text-white shadow-sm"
-                                    : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+                                ? "bg-[var(--accent-color)] text-white shadow-sm"
+                                : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
                                 }`}
                         >
                             {mode.charAt(0).toUpperCase() + mode.slice(1)}

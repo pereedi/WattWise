@@ -2,11 +2,14 @@ import { useEffect, useState } from "react";
 import Layout from "./components/Layout";
 import Overview from "./pages/Overview";
 import EnergyCalculation from "./pages/EnergyCalculation";
+import Login from "./pages/Login";
+import Welcome from "./pages/Welcome";
 import { fetchHomes, fetchApplianceSnapshot, fetchDailyEnergy, fetchCostSummary, fetchAllAppliancesDaily } from "./services/api";
 import { subDays, format } from "date-fns";
 
 export default function App() {
-  const [activePage, setActivePage] = useState("overview");
+  const [isAuthenticated, setIsAuthenticated] = useState(!!localStorage.getItem("wattwise_token"));
+  const [activePage, setActivePage] = useState("welcome");
   const [homes, setHomes] = useState([]);
   const [selectedHome, setSelectedHome] = useState("");
   const [start, setStart] = useState(format(subDays(new Date(), 30), "yyyy-MM-dd"));
@@ -19,26 +22,38 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+    setActivePage("welcome");
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem("wattwise_token");
+    setIsAuthenticated(false);
+  };
+
   useEffect(() => {
+    if (!isAuthenticated) return;
+
     fetchHomes()
       .then((data) => {
         setHomes(data);
         if (data.length > 0) setSelectedHome(data[0].home_id);
       })
       .catch((e) => setError(e.message));
-  }, []);
+  }, [isAuthenticated]);
 
   useEffect(() => {
-    if (!selectedHome) return;
+    if (!selectedHome || !isAuthenticated) return;
 
     setLoading(true);
     setError("");
 
     Promise.all([
-      fetchApplianceSnapshot(selectedHome),
-      fetchDailyEnergy(selectedHome, start, end),
-      fetchCostSummary(selectedHome, start, end),
-      fetchAllAppliancesDaily(selectedHome, start, end)
+      fetchApplianceSnapshot(),
+      fetchDailyEnergy(start, end),
+      fetchCostSummary(start, end),
+      fetchAllAppliancesDaily(start, end)
     ])
       .then(([live, daily, cost, allApps]) => {
         setLiveData(live);
@@ -52,7 +67,11 @@ export default function App() {
       })
       .finally(() => setLoading(false));
 
-  }, [selectedHome, start, end]);
+  }, [selectedHome, start, end, isAuthenticated]);
+
+  if (!isAuthenticated) {
+    return <Login onLoginSuccess={handleLoginSuccess} />;
+  }
 
   const commonProps = {
     homes,
@@ -67,11 +86,17 @@ export default function App() {
     costData,
     allAppliancesData,
     loading,
-    error
+    error,
+    onLogout: handleLogout,
+    setActivePage: setActivePage
   };
 
+  if (activePage === "welcome") {
+    return <Welcome onContinue={() => setActivePage("overview")} />;
+  }
+
   return (
-    <Layout activePage={activePage} setActivePage={setActivePage}>
+    <Layout>
       {activePage === "overview" ? (
         <Overview {...commonProps} />
       ) : (

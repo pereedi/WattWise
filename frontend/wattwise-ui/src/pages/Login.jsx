@@ -67,9 +67,9 @@ export default function Login({ onLoginSuccess }) {
                     {/* Identity Input */}
                     <div className="space-y-2">
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                            {/* <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                                 <User className="h-[18px] w-[18px] text-zinc-400 group-focus-within:text-white transition-colors duration-300" />
-                            </div>
+                            </div> */}
                             <input
                                 type="text"
                                 value={userId}
@@ -84,9 +84,9 @@ export default function Login({ onLoginSuccess }) {
                     {/* Access Key Input */}
                     <div className="space-y-2">
                         <div className="relative group">
-                            <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
+                            {/* <div className="absolute inset-y-0 left-0 pl-5 flex items-center pointer-events-none">
                                 <Lock className="h-[18px] w-[18px] text-zinc-400 group-focus-within:text-white transition-colors duration-300" />
-                            </div>
+                            </div> */}
                             <input
                                 type="password"
                                 value={password}

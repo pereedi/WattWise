@@ -14,6 +14,7 @@ htmlcov/
 # --- Database / Data ---
 # Ignore large DuckDB files and local data backups
 backend/db/*.duckdb
+!backend/db/wattwise_fixed.duckdb
 backend/db/*.duckdb.*
 backend/data/*.csv
 !backend/data/README.txt

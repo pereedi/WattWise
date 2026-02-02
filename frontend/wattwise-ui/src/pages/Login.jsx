@@ -49,7 +49,7 @@ export default function Login({ onLoginSuccess }) {
                     </defs>
                 </svg>
             </div>
-
+ 
             {/* GLASS CARD CONTAINER */}
             <div className="relative  z-10 w-full max-w-[500px] p-20 bg-white/[0.04] backdrop-blur-[40px] border border-white/[0.08] rounded-[32px] shadow-[0_30px_60px_-15px_rgba(0,0,0,0.6)] animate-fade-in-up">
 

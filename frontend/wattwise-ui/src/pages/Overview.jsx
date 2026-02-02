@@ -64,7 +64,7 @@ export default function Overview({
   if (loading && homes.length === 0) return <div className="min-h-screen flex items-center justify-center text-slate-400">Loading Dashboard...</div>;
 
   return (
-    <div className="space-y-16 pb-24 font-['Inter'] animate-fade-in">
+    <div className="space-y-20 pb-24 font-['Inter'] animate-fade-in px-4 md:px-8 max-w-7xl mx-auto">
 
       {/* Header with Navigation */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center py-6 gap-4 border-b border-white/5">
@@ -210,8 +210,9 @@ export default function Overview({
               <BarChart data={costData}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="rgba(255,255,255,0.05)" />
                 <XAxis dataKey="date" tickFormatter={d => format(parseISO(d), "d")} tickLine={false} axisLine={false} tick={{ fill: '#64748b', fontSize: 12, dy: 10 }} />
+                <YAxis tickLine={false} axisLine={false} tick={{ fill: '#64748b', fontSize: 12 }} />
                 <Tooltip contentStyle={{ backgroundColor: '#0B0F1A', border: '1px solid rgba(255,255,255,0.1)', borderRadius: '8px' }} />
-                <Legend iconType="circle" wrapperStyle={{ paddingTop: '20px' }} />
+                <Legend iconType="circle" verticalAlign="bottom" height={36} wrapperStyle={{ paddingTop: '20px' }} />
                 <Bar dataKey="peak_cost" name="Peak Cost" stackId="a" fill="#EF4444" radius={[0, 0, 4, 4]} maxBarSize={40} />
                 <Bar dataKey="off_peak_cost" name="Off-Peak Cost" stackId="a" fill="#10B981" radius={[4, 4, 0, 0]} maxBarSize={40} />
               </BarChart>
@@ -276,7 +277,7 @@ export default function Overview({
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Shiftable Load */}
         <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-colors duration-300">
-          <div className="mb-6 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+          <div className="mb-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h2 className="text-xl font-bold text-white flex items-center gap-3">
                 <div className="p-2 bg-indigo-500/10 rounded-lg">
@@ -325,7 +326,7 @@ export default function Overview({
 
         {/* Live Device Status List */}
         <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-colors duration-300">
-          <h2 className="text-xl font-bold text-white mb-6">Live Device Status</h2>
+          <h2 className="text-xl font-bold text-white mb-10">Live Device Status</h2>
           <div className="space-y-3">
             {liveData.slice(0, 5).map((device, i) => (
               <div key={i} className="flex justify-between items-center p-4 bg-white/[0.02] rounded-2xl border border-white/[0.04] hover:bg-white/[0.04] transition-colors">

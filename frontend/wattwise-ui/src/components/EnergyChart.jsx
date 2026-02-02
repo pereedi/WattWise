@@ -73,7 +73,7 @@ export default function EnergyChart({ data }) {
 
     return (
         <div className="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm h-full flex flex-col">
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-10">
                 <h3 className="text-lg font-bold text-[var(--text-primary)]">Energy Consumption</h3>
                 <div className="flex bg-[var(--bg-secondary)] rounded-lg p-1 border border-[var(--border-color)] gap-2">
                     {["day", "week", "month"].map((mode) => (

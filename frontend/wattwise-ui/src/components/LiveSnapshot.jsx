@@ -15,7 +15,7 @@ export default function LiveSnapshot({ appliances }) {
 
     return (
         <div className="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm h-full">
-            <div className="flex items-center gap-2 mb-6">
+            <div className="flex items-center gap-2 mb-10">
                 <div className="p-2 bg-green-500/10 rounded-lg text-green-500">
                     <Power size={20} />
                 </div>

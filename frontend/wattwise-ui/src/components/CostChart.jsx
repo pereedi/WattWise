@@ -54,7 +54,7 @@ export default function CostChart({ data }) {
 
     return (
         <div className="bg-[var(--card-bg)] p-6 rounded-xl border border-[var(--border-color)] shadow-sm h-full">
-            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-6">Cost Breakdown (Peak vs Off-Peak)</h3>
+            <h3 className="text-lg font-bold text-[var(--text-primary)] mb-10">Cost Breakdown (Peak vs Off-Peak)</h3>
             <div className="h-[300px] w-full">
                 <ResponsiveContainer width="100%" height="100%">
                     <BarChart data={processedData} margin={{ top: 5, right: 20, bottom: 5, left: 0 }}>

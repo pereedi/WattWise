@@ -55,7 +55,7 @@ export default function Dashboard({
         <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] font-sans pb-12">
             {/* Top Bar / Header Area */}
             <div className="sticky top-0 z-50 backdrop-blur-md bg-[var(--bg-primary)]/80 border-b border-[var(--border-color)]">
-                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-6 mb-8">
                     <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                         <div className="flex items-center gap-3">
                             <div className="w-10 h-10 bg-gradient-to-br from-[var(--accent-color)] to-purple-600 rounded-xl flex items-center justify-center shadow-lg shadow-purple-500/20">
@@ -77,7 +77,7 @@ export default function Dashboard({
                 </div>
             </div>
 
-            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 py-16 flex flex-col gap-10">
                 {/* KPI Section */}
                 <section>
                     <KPICards

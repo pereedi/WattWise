@@ -64,7 +64,7 @@ export default function Overview({
   if (loading && homes.length === 0) return <div className="min-h-screen flex items-center justify-center text-slate-400">Loading Dashboard...</div>;
 
   return (
-    <div className="space-y-20 pb-24 font-['Inter'] animate-fade-in px-4 md:px-8 max-w-7xl mx-auto">
+    <div className="flex flex-col gap-10 pb-32 font-['Inter'] animate-fade-in px-4 md:px-12 max-w-7xl mx-auto">
 
       {/* Header with Navigation */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center py-6 gap-4 border-b border-white/5">
@@ -93,7 +93,7 @@ export default function Overview({
       </div>
 
       {/* 1. Current Energy Usage (Live) - Featured Card */}
-      <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-all duration-300 shadow-2xl shadow-black/20">
+      <div className="bg-[#151A29] rounded-3xl p-10 md:p-12 border border-white/5 relative overflow-hidden group hover:border-white/10 transition-all duration-300 shadow-2xl shadow-black/20">
         <div className="absolute top-0 right-0 p-[200px] bg-purple-600/5 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2"></div>
 
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center z-10 relative mb-8">
@@ -149,7 +149,7 @@ export default function Overview({
       </div>
 
       {/* 2. Recent Electricity Use (Bar Chart) */}
-      <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-colors duration-300">
+      <div className="bg-[#151A29] rounded-3xl p-10 md:p-12 border border-white/5 hover:border-white/10 transition-colors duration-300">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
           <div>
             <h2 className="text-xl font-bold text-white flex items-center gap-3">
@@ -190,7 +190,7 @@ export default function Overview({
       </div>
 
       {/* 3. Cost Breakdown (Bar + Pie) */}
-      <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-colors duration-300">
+      <div className="bg-[#151A29] rounded-3xl p-10 md:p-12 border border-white/5 hover:border-white/10 transition-colors duration-300">
         <div className="flex justify-between items-start mb-8">
           <div>
             <h2 className="text-xl font-bold text-white flex items-center gap-3">
@@ -276,7 +276,7 @@ export default function Overview({
       {/* 4. Most Energy Usage & Shiftable */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
         {/* Shiftable Load */}
-        <div className="bg-[#151A29] rounded-3xl p-8 border border-white/5 hover:border-white/10 transition-colors duration-300">
+        <div className="bg-[#151A29] rounded-3xl p-10 md:p-12 border border-white/5 hover:border-white/10 transition-colors duration-300">
           <div className="mb-10 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
             <div>
               <h2 className="text-xl font-bold text-white flex items-center gap-3">
